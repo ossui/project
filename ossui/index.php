@@ -1,5 +1,14 @@
 <?php
 
+/* OSSUI is Modified from OSSEC WUI by Trend Micro
+ * for IT Capstone @ Arizona State University
+ * Author: Ryan Yap
+ *
+ * This program is a free software; you can redistribute it
+ * and/or modify it under the terms of the GNU General Public
+ * License (version 3) as published by the FSF - Free Software
+ * Foundation
+ */
 
 /* Update the include path so that all library files can be
  * easily found.

@@ -1,72 +1,45 @@
+OSSUI is a modified version of
 OSSEC Web UI v0.8
 Copyright (c) 2006-2013 Trend Micro Inc.
 
+Author: Ryan Yap
 
-1- How to install.
+1 - How to install.
 
 1.0 - Prerequisites
 
     - Apache with PHP (>= 4.1 or >= 5.0) installed.
     - OSSEC (version >= 0.9-3) already installed.
 
+Instructions:
 
-1.1- Clone the web ui script:
+1.1 - Download Linux, OSSUI, OSSEC, and Installation Script
 
-    # git clone https://github.com/ossec/ossec-wui.git
+1.2 - Decompress downloaded files using Archive Manager
 
+1.3 - Replace install.sh script in ossec folder
 
-1.2- Move the folder to somewhere acessible by
-     your web server:
+1.4 - Right-click Linux desktop and open terminal
 
-    # mv ossec-wui* /var/www/htdocs/ossec-wui
+1.5 - Execute install.sh script: ./install.sh
 
+1.6 - Move to ossec folder (e.g. $ cd Downloads/ossec) and 
+	  open root shell: sudo su
 
-1.3- Run the setup script (assign username/password...):
+1.7 - Choose whether to enable email notifications [Y/N]
 
-    # cd /var/www/htdocs/ossec-wui
-    # ./setup.sh
-    ...
+1.8 - From root, enter: /var/ossec/bin/ossec-control start
 
+1.9 - Execute ossui setup script: /Desktop/ossui/setup.sh
 
-1.4- If selinux is enabled, ossec-wui is normally unable to access 
-     various ossec log files.  One way to fix this is to install a 
-     selinux targeted policy.
+1.10 - Create username and password for OSSUI
 
-     Create a TE file (eg. 
-     /etc/seliinux/targeted/ossec-wui/ossec-wui.te) with the following 
-     content:
+1.11 - Open browser and navigate to localhost/ossui
 
-    module ossec-wui 1.0;
+2 - Troubleshooting
 
-    require {
-	type var_log_t;
-        type httpd_t;
-        type var_t;
-        class file { read getattr open };
-    }
+2.1 - Problem executing setup.sh: Check permissions of script file
+		(chmod +x setup.sh)
 
-    #============= httpd_t ==============
-    allow httpd_t var_log_t:file read;
-    allow httpd_t var_t:file { read getattr open };
-
-     Then run the following commands as root:
-
-    checkmodule -M -m ossec-wui.te -o ossec-wui.mod
-    semodule_package -o ossec-wui.pp -m ossec-wui.mod
-    semodule -i ossec-wui.pp 
-
-1.5- If you have a large ossec install, you may want to
-     re-configure PHP to support longer lasting scripts
-     and higher memory utilization. The following entries
-     on php.ini can be increased:
-
-     max_execution_time = 180
-     max_input_time = 180
-     memory_limit = 30M
-
-
-1.6- Try to access the UI.
-
-     http://anyhost/ossec-wui/
-
-1.7- Report any problems or suggestions to our mailing list.
+2.2 - OSSUI alerts not appearing: Restart Linux machine or Apache server
+		(e.g. # service apache2 restart)

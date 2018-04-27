@@ -1,8 +1,8 @@
 <?php
-/* @(#) $Id: syscheck.php,v 1.6 2008/03/03 19:37:26 dcid Exp $ */
 
-/* Copyright (C) 2006-2013 Trend Micro
- * All rights reserved.
+/* OSSUI is Modified from OSSEC WUI by Trend Micro
+ * for IT Capstone @ Arizona State University
+ * Author: Ryan Yap
  *
  * This program is a free software; you can redistribute it
  * and/or modify it under the terms of the GNU General Public

@@ -39,7 +39,10 @@ HT_DIR_ACCESS="deny from all"
 HT_FLZ_ACCESS="AuthUserFile $PWD/.htpasswd"
 HT_DEFAULT="htaccess_def.txt"
 
-
+echo ""
+echo "Installing Apache + PHP"
+apt-get install apache2 libapache2-mod-php
+echo "Done"
 echo "Setting up ossec ui..."
 echo ""
 
